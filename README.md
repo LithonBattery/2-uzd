@@ -13,5 +13,5 @@ Programos veikimas:
   6.2 Jei vartotojas pasirenka neįvesti naujo studento, programa išveda visų studentų sąrašą su apskaičiuotu galutiniu balu (galutinio balo skaičiavimas priklauso nuo to ar vartotojas programos pradžioje pasirinko vidurkį ar medianą).
 
 Galutinio balo apskaičiavimas:
-- Su vidurkiu: 0.4*vidurkis + 0.6*egzamino vertinimas.
-- Su mediana: 0.4*mediana + 0.6*egzamino vertinimas.
+- Su vidurkiu: 0.4 * vidurkis + 0.6 * egzamino vertinimas.
+- Su mediana: 0.4 * mediana + 0.6 * egzamino vertinimas.
