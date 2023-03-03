@@ -1,3 +1,4 @@
+
 # 1-uzd v.02
 Programos veikimas:
 
