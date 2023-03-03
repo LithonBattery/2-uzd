@@ -120,5 +120,6 @@ int main() {
     catch (const char *err)
     {
         cout << err << endl;
+        cout << "Nuskaitymo failas turi buti pavadintas 'kursiokai.txt'. Isitikinkite, kad jusu nuskaitomas failas taip pavadintas ir paleiskite programa is naujo" << endl;
     }
 }
