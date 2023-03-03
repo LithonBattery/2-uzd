@@ -20,4 +20,4 @@ Galutinio balo apskaičiavimas:
 
 Papildymai nuo v.02:
 1. Programa išskirstyta į kelis .cpp ir .h failus.
-2. Pridėtas try-catch siekiant apsaugoti nuo kreipimosi į neegzistuojantį failą.
+2. Pridėtas try-catch siekiant įspėti apie kreipimasį į neegzistuojantį failą.
