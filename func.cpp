@@ -216,46 +216,72 @@ void rankinis (vector<stud> &v, bool arrand, int &m, int &n, bool arvid)
         sort(v.begin(), v.end(), comp);
     }
 }
-void spausd (const stud &tmp, int i, bool ari, bool arvid, string filename)
+// void spausd (const stud &tmp, int i, bool ari, bool arvid, string filename)
+// {
+//     ofstream out (filename, std::ios::app);
+//     char eil [200];
+//     sprintf(eil, "%-20s%-20s%-20.02f", tmp.vardas.c_str(), tmp.pavarde.c_str(), tmp.g);
+//     if (ari==1)
+//     {
+//         if (i==0)
+//         {
+//             out << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde";
+//             if (arvid == 1)
+//             {
+//                 out << setw(20) << left << "Galutinis(vid)"<< endl;
+//             }
+//             else
+//             {
+//                 out << setw (20) << left << "Galutinis(med)" << endl;
+//             }
+//             out << "_______________________________________________________" << endl;
+//         }
+//         out << eil << endl;
+//     }
+//     else
+//     {
+//         if (i==0)
+//         {
+//             cout << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20);
+//             if (arvid == 1)
+//             {
+//                 cout << setw(20) << left << "Galutinis(vid)"<< endl;
+//             }
+//             else
+//             {
+//                 cout << setw (20) << left << "Galutinis(med)" << endl;
+//             }
+//             cout << "_______________________________________________________" << endl;
+//         }
+//         cout << eil << endl;
+//     }
+// }
+void spausd (const vector<stud> &v, bool ari, bool arvid, string filename)
 {
     ofstream out (filename, std::ios::app);
-    char eil [200];
-    sprintf(eil, "%-20s%-20s%-20.02f", tmp.vardas.c_str(), tmp.pavarde.c_str(), tmp.g);
-    if (ari==1)
+    std::ostringstream buff;
+    buff << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde";
+    if (arvid == 1)
     {
-        if (i==0)
-        {
-            out << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde";
-            if (arvid == 1)
-            {
-                out << setw(20) << left << "Galutinis(vid)"<< endl;
-            }
-            else
-            {
-                out << setw (20) << left << "Galutinis(med)" << endl;
-            }
-            out << "_______________________________________________________" << endl;
-        }
-        out << eil << endl;
+        buff << setw(20) << left << "Galutinis(vid)"<< endl;
     }
     else
     {
-        if (i==0)
-        {
-            cout << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20);
-            if (arvid == 1)
-            {
-                cout << setw(20) << left << "Galutinis(vid)"<< endl;
-            }
-            else
-            {
-                cout << setw (20) << left << "Galutinis(med)" << endl;
-            }
-            cout << "_______________________________________________________" << endl;
-        }
-        cout << eil << endl;
+        buff << setw (20) << left << "Galutinis(med)" << endl;
     }
-    out.close();
+    buff << "_______________________________________________________" << endl;
+    for (int i=0; i<v.size(); i++)
+    {
+        buff << setw(20) << left << v.at(i).vardas << setw(20) << left << v.at(i).pavarde << setw(20) << left << fixed << setprecision(2) << v.at(i).g << endl;
+    }
+    if (ari==1)
+    {
+        out << buff.str();
+    }
+    else
+    {
+        cout << buff.str();
+    }
 }
 void skaitymas (vector<stud> &v, int &m, bool arvid)
 {
@@ -318,27 +344,27 @@ void generavimas()
     cin >> n;
     auto t1 = std::chrono::high_resolution_clock::now();
     pav = pav + std::to_string(d)+".txt";
-    //ofstream out (pav, std::ios::app);
     ofstream out (pav);
-    out << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde";
+    std::ostringstream buff;
     for (int i=0; i<n; i++)
     {
-        out << setw(10) << "ND"+std::to_string(i+1);
+        buff << setw(10) << "ND"+std::to_string(i+1);
     }
-    out << setw(10) << "Egz." << endl;
+    buff << setw(10) << "Egz." << endl;
     for (int j=0; j<d; j++)
     {
-        out << setw(20) << left << "Vardas"+std::to_string(j) << setw(20) << left << "Pavarde"+std::to_string(j);
+        buff << setw(20) << left << "Vardas"+std::to_string(j) << setw(20) << left << "Pavarde"+std::to_string(j);
         int e;
+        int p;
         for (int i=0; i<n; i++)
         {
-            int p;
             p = random();
-            out << setw(10) << p;
+            buff << setw(10) << p;
         }
         e = random();
-        out << setw(10) << e << endl;
+        buff << setw(10) << e << endl;
     }
+    out << buff.str();
     out.close();
     auto t2 = std::chrono::high_resolution_clock::now();
     cout << "Failas sugeneruotas per " << std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count()/1000000.0 << " sec" << endl;
@@ -375,14 +401,16 @@ void atskyrimas (vector<stud> &v, bool ari, bool arvid)
     ofstream o1(fb);
     ofstream o2(fg);
     ari = 1;
-    for (int i=0; i<v.size(); i++)
-    {
-        spausd (v.at(i), i, ari, arvid, fb);
-    }
-    for (int i=0; i<g.size(); i++)
-    {
-        spausd (g.at(i), i, ari, arvid, fg);
-    }
+    // for (int i=0; i<v.size(); i++)
+    // {
+    //     spausd (v.at(i), i, ari, arvid, fb);
+    // }
+    // for (int i=0; i<g.size(); i++)
+    // {
+    //     spausd (g.at(i), i, ari, arvid, fg);
+    // }
+    spausd (v, ari, arvid, fb);
+    spausd (g, ari, arvid, fg);
     o1.close();
     o2.close();
     auto t4 = std::chrono::high_resolution_clock::now();
@@ -412,10 +440,13 @@ void darb (vector<stud> &v, bool arat, bool ari, bool arvid)
         }
         auto t1 = std::chrono::high_resolution_clock::now();
         string f = "rez.txt";
-        for (int i=0; i<v.size(); i++)
-        {
-            spausd (v.at(i), i, ari, arvid, f);
-        }
+        ofstream out(f);
+        // for (int i=0; i<v.size(); i++)
+        // {
+        //     spausd (v.at(i), i, ari, arvid, f);
+        // }
+        spausd (v, ari, arvid, f);
+        out.close();
         auto t2 = std::chrono::high_resolution_clock::now();
         cout << "Rezultatai isspausdinti i faila 'rez.txt' per " << std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count()/1000000.0 << " sec" << endl;
     }
