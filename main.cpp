@@ -51,5 +51,7 @@ int main() {
     }
     v.clear();
     auto tp = std::chrono::high_resolution_clock::now();
+    cout << "------------------------------------------------------------------------------" << endl;
     cout << "Programa baige darba per " << std::chrono::duration_cast<std::chrono::microseconds>(tp-t).count()/1000000.0 << " sec, rezultatai isvesti i atitinkamus failus." << endl;
+    cout << "------------------------------------------------------------------------------" << endl;
 }
