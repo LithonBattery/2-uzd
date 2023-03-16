@@ -330,7 +330,9 @@ void skaitymas (vector<stud> &v, int &m, bool arvid)
         }
         in.close();
         auto t2 = std::chrono::high_resolution_clock::now();
+        cout << "------------------------------------" << endl;
         cout << "Failas nuskaitytas per " << std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count()/1000000.0 << " sec" << endl;
+        cout << "------------------------------------" << endl;
         sort(v.begin(), v.end(), comp);
     }
 }
@@ -346,6 +348,7 @@ void generavimas()
     pav = pav + std::to_string(d)+".txt";
     ofstream out (pav);
     std::ostringstream buff;
+    buff << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde";
     for (int i=0; i<n; i++)
     {
         buff << setw(10) << "ND"+std::to_string(i+1);
@@ -367,7 +370,9 @@ void generavimas()
     out << buff.str();
     out.close();
     auto t2 = std::chrono::high_resolution_clock::now();
+    cout << "------------------------------------" << endl;
     cout << "Failas sugeneruotas per " << std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count()/1000000.0 << " sec" << endl;
+    cout << "------------------------------------" << endl;
 }
 bool comp_paz (const stud &a, const stud &b)
 {
@@ -395,7 +400,9 @@ void atskyrimas (vector<stud> &v, bool ari, bool arvid)
     vector<stud> g(i, v.end());
     v.resize(v.size()-g.size());
     auto t2 = std::chrono::high_resolution_clock::now();
+    cout << "-------------------------------------" << endl;
     cout << "Studentai surusiuoti per " << std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count()/1000000.0 << " sec" << endl;
+    cout << "-------------------------------------" << endl;
     string fg = "topai.txt", fb = "po_apacia.txt";
     auto t3 = std::chrono::high_resolution_clock::now();
     ofstream o1(fb);
@@ -414,7 +421,9 @@ void atskyrimas (vector<stud> &v, bool ari, bool arvid)
     o1.close();
     o2.close();
     auto t4 = std::chrono::high_resolution_clock::now();
+        cout << "------------------------------------------------------------------------" << endl;
     cout << "Surusiuoti studentai isvesti i du naujus failus per " << std::chrono::duration_cast<std::chrono::microseconds>(t4-t3).count()/1000000.0 << " sec" << endl;
+        cout << "------------------------------------------------------------------------" << endl;
 }
 void darb (vector<stud> &v, bool arat, bool ari, bool arvid)
 {
@@ -448,7 +457,9 @@ void darb (vector<stud> &v, bool arat, bool ari, bool arvid)
         spausd (v, ari, arvid, f);
         out.close();
         auto t2 = std::chrono::high_resolution_clock::now();
+        cout << "-----------------------------------------------------------" << endl;
         cout << "Rezultatai isspausdinti i faila 'rez.txt' per " << std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count()/1000000.0 << " sec" << endl;
+        cout << "-----------------------------------------------------------" << endl;
     }
 }
 
