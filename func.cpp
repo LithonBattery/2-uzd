@@ -341,9 +341,19 @@ void generavimas()
     int d, n;
     string pav = "kursiokai";
     cout << "Kokio studentu kiekio faila norite generuoti?" << endl;
-    cin >> d;
+    while (!(cin >> d) || d==0)
+    {
+        cin.clear();
+        cin.ignore();
+        cout << "Iveskite naturaluji skaiciu didesni uz 0" << endl;
+    }
     cout << "Kiek pazymiu norite generuoti?" << endl;
-    cin >> n;
+    while (!(cin >> n) || n==0)
+    {
+        cin.clear();
+        cin.ignore();
+        cout << "Iveskite naturaluji skaiciu didesni uz 0" << endl;
+    }
     auto t1 = std::chrono::high_resolution_clock::now();
     pav = pav + std::to_string(d)+".txt";
     ofstream out (pav);
@@ -457,9 +467,9 @@ void darb (vector<stud> &v, bool arat, bool ari, bool arvid)
         spausd (v, ari, arvid, f);
         out.close();
         auto t2 = std::chrono::high_resolution_clock::now();
-        cout << "-----------------------------------------------------------" << endl;
-        cout << "Rezultatai isspausdinti i faila 'rez.txt' per " << std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count()/1000000.0 << " sec" << endl;
-        cout << "-----------------------------------------------------------" << endl;
+        cout << "----------------------------------------" << endl;
+        cout << "Rezultatai isspausdinti per " << std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count()/1000000.0 << " sec" << endl;
+        cout << "----------------------------------------" << endl;
     }
 }
 
