@@ -20,7 +20,7 @@ PROGRAMOS VEIKIMAS:
 13. 1) Jei vartotojas pasirenka generuoti dar vieną failą programa grįžta į 9 žingsnį.
     2) Jei vartotojas pasirenka nebegeneruoti daugiau failų, programa pereina į 14 žingsnį.
 14. Vartotojo prašoma įvesti nuskaitomo failo pavadinimą.
-15. Vartotojo klausiama ar jis nori surūšiuoti studentus pagal pažymius ir atskirti juos į du failus (įvedamas 1 arba 0).
+15. Vartotojo klausiama ar jis nori surūšiuoti studentus pagal pažymius ir atskirti juos į du failus (topai.txt - galutiniai pažymiai virš 5, po_apačia.txt - galuiniai pažymiai žemiau 5) (įvedamas 1 arba 0).
 16. 1) Jei vartotojas pasirenka atskirti, programa pereina į 19 žingsnį.
     2) Jei vartotojas pasirenka neatskirti, studentai surūšiuojami pagal vardus, programa pereina į 17 žingsnį.
 17. Vartotojo klausiama ar duomenis lentelės pavidalu išvesti į failą (rez.txt) ar į konsolę (įvedamas 1 arba 0).
