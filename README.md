@@ -1,5 +1,5 @@
 # 1-uzd v.04
-Programos veikimas:
+PROGRAMOS VEIKIMAS:
 
 1. Programos pradžioje vartotojo klausiama ar jis norės naudoti vidurkį ar medianą galutinio balo skaičiavimui (įvedamas 1 arba 0).
 2. Vartotojo klausiama ar jis norės naudoti nuskaityti duomenis iš failo ar ne (įvedamas 1 arba 0).
