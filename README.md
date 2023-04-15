@@ -38,12 +38,10 @@ Galutinio balo apskaičiavimas:
 - Su mediana: 0.4 * mediana + 0.6 * egzamino vertinimas.
 
 TESTAVIMAS:
-- Testuojant buvo naudojami 5 failai - 1000, 10 000, 100 000, 1 000 000 ir 10 000 000 studentų su 15 pažymių kiekvienam studentui.
+- Testuojant buvo naudojami 5 failai - 1000, 10 000, 100 000, 1 000 000 ir 10 000 000 studentų su 3 pažymiais kiekvienam studentui.
 - Kadangi programos veikimo metu daug kartų prašoma vartotojo pasirinkti veiksmus ar įrašyti tam tikrus duomenis, bendras programos laikas buvo matuojamas, tačiau testavimo metu išvesti bendri laikai neįrašyti.
 - Testavimas atliktas su trimis programos realizacijomis - naudojant vector, deque arba list konteinerius.
-- Dėl tam tikrų kodo problemų testavimas su 10 000 000 eilučių failu nebuvo vykdomas.
-- Dėl tam tikrų kodo problemų list konteinerių testavimas su 1 000 000 eilučių failu nebuvo vykdomas.
-- Kai darbo laikas buvo per mažas, kad programa išmatuotų, rašomas 0 s.
+- Dėl numatomo per ilgo programos veikimo laiko, list konteinerio 1 000 000 ir 10 000 000 eilučių ilgio išvedimas nebuvo matuojamas.
 
 Testavimui naudotas nešiojamasis kompiuteris:
 | CPU  | 12th Gen Intel(R) Core(TM) i9-12900H, 2,50 GHz |
@@ -54,24 +52,24 @@ Testavimui naudotas nešiojamasis kompiuteris:
 Vector:
 |                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
 |-------------------------------------------|----------|----------|----------|-----------|------------|
-| Failo nuskaitymas                         | 0,0081 s | 0,0878 s | 0,8709 s | 8,5671 s  |      -     |
-| Studentų rūšiavimas                       | 0,0030 s | 0,0200 s | 0,2234 s | 3,1227 s  |      -     |
-| Studentų atskyrimas                       | 0,0010 s | 0,0030 s | 0,0380 s | 0,3034 s  |      -     |
-| Studentų išvedimas į du skirtingus failus | 0,0110 s | 0,0330 s | 0,2582 s | 2,4651 s  |      -     |
+| Failo nuskaitymas                         | 0,0215 s | 0,1999 s | 2,0353 s | 19,7341 s |  205,498 s |
+| Studentų rūšiavimas                       | 0,0074 s | 0,0548 s | 0,4979 s |  5,6338 s |  53,1264 s |
+| Studentų atskyrimas                       | 0,0009 s | 0,0075 s | 0,0881 s |  0,8735 s |  9,2614 s  |
+| Studentų išvedimas į du skirtingus failus | 0,0085 s | 0,0581 s | 0,5441 s |  5,3866 s |  57,9246 s |
    
 Deque:
-|                                           | 1000     | 10 000    | 100 000  | 1 000 000 | 10 000 000 |
-|-------------------------------------------|----------|-----------|----------|-----------|------------|
-| Failo nuskaitymas                         | 0,0120 s | 0,0958 s  | 0,9212 s | 9,2583 s  |      -     |
-| Studentų rūšiavimas                       | 0,0040 s | 0,0250 s  | 0,3210 s | 4,2738 s  |      -     |
-| Studentų atskyrimas                       | 0,0010 s | 0,0060 s  | 0,0720 s | 0,6251 s  |      -     |
-| Studentų išvedimas į du skirtingus failus | 0,0080 s | 0,03370 s | 0,3075 s | 2,8158 s  |      -     |
+|                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
+|-------------------------------------------|----------|----------|----------|-----------|------------|
+| Failo nuskaitymas                         | 0,0212 s | 0,2018 s | 2,0978 s | 21,0506 s |  228,583 s |
+| Studentų rūšiavimas                       | 0,0068 s | 0,0634 s | 0,6218 s |  6,7983 s |  62,8946 s |
+| Studentų atskyrimas                       | 0,0018 s | 0,0258 s | 0,2064 s |  2,0836 s |  22,2655 s |
+| Studentų išvedimas į du skirtingus failus | 0,0098 s | 0,0921 s | 0,9080 s |  9,1744 s |  110,429 s |
    
 List:
 |                                           | 1000     | 10 000   | 100 000   | 1 000 000 | 10 000 000 |
 |-------------------------------------------|----------|----------|-----------|-----------|------------|
-| Failo nuskaitymas                         | 0,0181 s | 0,1511 s | 0,1540 s  |     -     |      -     |
-| Studentų rūšiavimas                       | 0 s      | 0,0060 s | 0,0566 s  |     -     |      -     |
-| Studentų atskyrimas                       | 0,002 s  | 0,0200 s | 0,1608 s  |     -     |      -     |
-| Studentų išvedimas į du skirtingus failus | 0,0090 s | 0,1427 s | 12,6227 s |     -     |      -     |
+| Failo nuskaitymas                         | 0,0199 s | 0,1846 s | 2,1220 s  | 22,0957 s |  201,652 s |
+| Studentų rūšiavimas                       | 0,0002 s | 0,0030 s | 0,0314 s  |  0,8397 s |  10,042 s  |
+| Studentų atskyrimas                       | 0,0017 s | 0,0168 s | 0,1817 s  |  3,1471 s |  10.042 s  |
+| Studentų išvedimas į du skirtingus failus | 0,0173 s | 0,4581 s | 118,631 s |     -     |      -     |
    
