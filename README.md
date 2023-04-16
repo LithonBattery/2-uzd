@@ -1,4 +1,4 @@
-# 1-uzd v.04
+# 1-uzd v.1
 PROGRAMOS VEIKIMAS:
 
 1. Programos pradžioje vartotojo klausiama ar jis norės naudoti vidurkį ar medianą galutinio balo skaičiavimui (įvedamas 1 arba 0).
