@@ -34,28 +34,32 @@ PROGRAMOS VEIKIMAS:
 22. Programa išveda visų studentų sąrašą su apskaičiuotu galutiniu balu pagal pažymių vidurkį ir pagal medianą.
 23. Programa baigia darbą.
 
-Galutinio balo apskaičiavimas:
+GALUTINIO BALO PASKAIČIAVIMAS:
 - Su vidurkiu: 0.4 * vidurkis + 0.6 * egzamino vertinimas.
 - Su mediana: 0.4 * mediana + 0.6 * egzamino vertinimas.
 
-Studentų atskyrimo metodai:
+
+STUDENTŲ ATSKYRIMO METODAI:
 1. Sukuriami du nauji konteineriai, į juos įrašomi atitinkami studentai.
 2. Sukuriamas vienas naujas konteineris, į kurį įrašomi atitinkami studentai, įrašytiejį į naują konteinerį pašalinami iš senojo.
+
 
 TESTAVIMAS:
 - Testuojant buvo naudojami 5 failai - 1000, 10 000, 100 000, 1 000 000 ir 10 000 000 studentų su 3 pažymiais kiekvienam studentui.
 - Kadangi programos veikimo metu daug kartų prašoma vartotojo pasirinkti veiksmus ar įrašyti tam tikrus duomenis, bendras programos laikas buvo matuojamas, tačiau testavimo metu išvesti bendri laikai neįrašyti.
 - Testavimas atliktas su trimis programos realizacijomis - naudojant vector, deque arba list konteinerius.
 - Dėl numatomo per ilgo programos veikimo laiko, list konteinerio 1 000 000 ir 10 000 000 eilučių ilgio išvedimas nebuvo matuojamas.
+- Kadangi ir senesnėse programos versijose buvo naudojamas find_if algoritmas, papildomi stl optimizavimo algoritmai nebuvo pritaikyti. Todėl programos sparta su jais nebuvo testuojama.
 
 Testavimui naudotas nešiojamasis kompiuteris:
 | CPU  | 12th Gen Intel(R) Core(TM) i9-12900H, 2,50 GHz |
 |------|------------------------------------------------|
 | RAM  | 32,0 GB (31,7 GB usable), DDR5-4800MHz         |
-| Disk | Solid State Drive                              |
+| Disk | Soli State Drive                               |
+| OS   | Windows 11 Home                                |
 
 
-Bendras veikimo laikų lyginimas:
+Bendras veikimo spartos lyginimas:
 
 Vector:
 |                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
@@ -82,5 +86,22 @@ List:
 | Studentų išvedimas į du skirtingus failus | 0,0173 s | 0,4581 s | 118,631 s |     -     |      -     |
 
 
-Atskyrimo metodų veikimo laikų lyginimas:
+Atskyrimo metodų spartos lyginimas:
 
+Vector:
+|           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
+|-----------|----------|----------|----------|-----------|------------|
+| 1 metodas | 0,0008 s | 0,0082 s | 0,0916 s | 0,92 s    | 9,9197 s   |
+| 2 metodas | 0,0007 s | 0,0072 s | 0,0919 s | 0,9052 s  | 10,2753 s  |
+
+Deque:
+|           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
+|-----------|----------|----------|----------|-----------|------------|
+| 1 metodas | 0,0097 s | 0,0182 s | 0,1925 s | 2,044 s   | 23,0396 s  |
+| 2 metodas | 0,0016 s | 0,0185 s | 0,1929 s | 2,1342 s  | 26,2578 s  |
+
+List:
+|           | 1000     | 10 000  | 100 000  | 1 000 000 | 10 000 000 |
+|-----------|----------|---------|----------|-----------|------------|
+| 1 metodas | 0,0021 s | 0,0167  | 0,1763 s | 2,7074 s  | 21,6143 s  |
+| 2 metodas | 0,0013 s | 0,015 s | 0,1814 s | 1,8273 s  | 21,6634 s  |
