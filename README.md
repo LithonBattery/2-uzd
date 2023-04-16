@@ -1,4 +1,16 @@
 # 1-uzd v.1
+PROGRAMOS ĮDIEGIMAS:
+
+Programai įdiegti naudojamas Makefile. Aplankale su programos failais atsidarius komandų terminalą reikia naudoti šias komandas:
+1. make - skirta programos pagrindiniam main.exe failui sukurti. (Jei trūksta func.o failo ši komanda pati jį sukompiliuoja)
+2. make func - skirta sukompiliuoti tik func.o failą.
+3. make clean - ištrina visus main.exe ir visus .o tipo failus.
+
+PROGRAMOS PALEIDIMAS:
+
+Programai paleisti naudojamas main.exe failas.
+
+
 PROGRAMOS VEIKIMAS:
 
 1. Programos pradžioje vartotojo klausiama ar jis norės naudoti vidurkį ar medianą galutinio balo skaičiavimui (įvedamas 1 arba 0).
@@ -34,7 +46,7 @@ PROGRAMOS VEIKIMAS:
 22. Programa išveda visų studentų sąrašą su apskaičiuotu galutiniu balu pagal pažymių vidurkį ir pagal medianą.
 23. Programa baigia darbą.
 
-GALUTINIO BALO PASKAIČIAVIMAS:
+GALUTINIO BALO APSKAIČIAVIMAS:
 - Su vidurkiu: 0.4 * vidurkis + 0.6 * egzamino vertinimas.
 - Su mediana: 0.4 * mediana + 0.6 * egzamino vertinimas.
 
@@ -55,11 +67,11 @@ Testavimui naudotas nešiojamasis kompiuteris:
 | CPU  | 12th Gen Intel(R) Core(TM) i9-12900H, 2,50 GHz |
 |------|------------------------------------------------|
 | RAM  | 32,0 GB (31,7 GB usable), DDR5-4800MHz         |
-| Disk | Soli State Drive                               |
+| Disk | Solid State Drive                              |
 | OS   | Windows 11 Home                                |
 
 
-Bendras veikimo spartos lyginimas:
+Bendras veikimo spartos lyginimas (naudotas ą atslyrimo metodas):
 
 Vector:
 |                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
@@ -85,6 +97,11 @@ List:
 | Studentų atskyrimas                       | 0,0017 s | 0,0168 s | 0,1817 s  |  3,1471 s |  10.042 s  |
 | Studentų išvedimas į du skirtingus failus | 0,0173 s | 0,4581 s | 118,631 s |     -     |      -     |
 
+Išvados:
+- Nuskaitymas ilgiausiai vyko į deque konteinerį.
+- Greičiausiai surūšiuotas buvo list konteineris (buvo naudotas list konteinerio specifinis algortimas).
+- Greičiausiai išvedamas buvo vector konteineris.
+- Didinant informacijos kiekį, list konteinerio sparta mažėja netolygiai.
 
 Atskyrimo metodų spartos lyginimas:
 
@@ -105,3 +122,8 @@ List:
 |-----------|----------|---------|----------|-----------|------------|
 | 1 metodas | 0,0021 s | 0,0167  | 0,1763 s | 2,7074 s  | 21,6143 s  |
 | 2 metodas | 0,0013 s | 0,015 s | 0,1814 s | 1,8273 s  | 21,6634 s  |
+
+Išvados:
+- Skirtumas būtų ryškesnis su dar didesniais informacijos kiekiais nei buvo naudota.
+- Su naudotais informacijos kiekiais skirtumai labai maži, praktiškai nereikšmingi.
+- Didžiausias užfiksuotas skirtumas - deque konteinerio, dirbant su 10 000 000 eilučių failu - 1 metodas 3,2 s greitesnis.
