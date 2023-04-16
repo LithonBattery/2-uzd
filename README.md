@@ -6,9 +6,10 @@ Programai įdiegti naudojamas Makefile. Aplankale su programos failais atsidariu
 2. make func - skirta sukompiliuoti tik func.o failą.
 3. make clean - ištrina visus main.exe ir visus .o tipo failus.
 
-PROGRAMOS PALEIDIMAS:
+Bendra informacija:
 
-Programai paleisti naudojamas main.exe failas.
+- Programai paleisti naudojamas main.exe failas (nepaisant naudojamo konteinerio).
+- Generuojamų failų pavadinimų šablonas: "kursiokai<jūsų_pasirinktas_eilučių_skaičius>.txt
 
 
 PROGRAMOS VEIKIMAS:
