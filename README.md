@@ -56,6 +56,7 @@ Testavimui naudotas nešiojamasis kompiuteris:
 
 
 Bendras veikimo laikų lyginimas:
+
 Vector:
 |                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
 |-------------------------------------------|----------|----------|----------|-----------|------------|
@@ -80,6 +81,6 @@ List:
 | Studentų atskyrimas                       | 0,0017 s | 0,0168 s | 0,1817 s  |  3,1471 s |  10.042 s  |
 | Studentų išvedimas į du skirtingus failus | 0,0173 s | 0,4581 s | 118,631 s |     -     |      -     |
 
+
 Atskyrimo metodų veikimo laikų lyginimas:
 
-   
