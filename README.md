@@ -61,7 +61,7 @@ TESTAVIMAS:
 - Testuojant buvo naudojami 5 failai - 1000, 10 000, 100 000, 1 000 000 ir 10 000 000 studentų su 3 pažymiais kiekvienam studentui.
 - Kadangi programos veikimo metu daug kartų prašoma vartotojo pasirinkti veiksmus ar įrašyti tam tikrus duomenis, bendras programos laikas buvo matuojamas, tačiau testavimo metu išvesti bendri laikai neįrašyti.
 - Testavimas atliktas su trimis programos realizacijomis - naudojant vector, deque arba list konteinerius.
-- Dėl numatomo per ilgo programos veikimo laiko, list konteinerio 1 000 000 ir 10 000 000 eilučių ilgio išvedimas nebuvo matuojamas.
+- Jei trukmė per maža ošmatuoti, rašomas 0.
 - Kadangi ir senesnėse programos versijose buvo naudojamas find_if algoritmas, papildomi stl optimizavimo algoritmai nebuvo pritaikyti. Todėl programos sparta su jais nebuvo testuojama.
 
 Testavimui naudotas nešiojamasis kompiuteris:
@@ -77,32 +77,31 @@ Bendras veikimo spartos lyginimas (naudotas ą atslyrimo metodas):
 Vector:
 |                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
 |-------------------------------------------|----------|----------|----------|-----------|------------|
-| Failo nuskaitymas                         | 0,0215 s | 0,1999 s | 2,0353 s | 19,7341 s |  205,498 s |
-| Studentų rūšiavimas                       | 0,0074 s | 0,0548 s | 0,4979 s |  5,6338 s |  53,1264 s |
-| Studentų atskyrimas                       | 0,0009 s | 0,0075 s | 0,0881 s |  0,8735 s |  9,2614 s  |
-| Studentų išvedimas į du skirtingus failus | 0,0085 s | 0,0581 s | 0,5441 s |  5,3866 s |  57,9246 s |
+| Failo nuskaitymas                         | 0,0050 s | 0,0201 s | 0,1750 s |  1,7055 s |  27,6632 s |
+| Studentų rūšiavimas                       | 0,0002 s | 0,0009 s | 0,0109 s |  0,0951 s |  1,0072 s  |
+| Studentų atskyrimas                       | 0 s      | 0,0006 s | 0,0070 s |  0,0984 s |  1,1611 s  |
+| Studentų išvedimas į du skirtingus failus | 0,0021 s | 0,0084 s | 0,0755 s |  0,7713 s |  8,0907 s  |
    
 Deque:
 |                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
 |-------------------------------------------|----------|----------|----------|-----------|------------|
-| Failo nuskaitymas                         | 0,0212 s | 0,2018 s | 2,0978 s | 21,0506 s |  228,583 s |
-| Studentų rūšiavimas                       | 0,0068 s | 0,0634 s | 0,6218 s |  6,7983 s |  62,8946 s |
-| Studentų atskyrimas                       | 0,0018 s | 0,0258 s | 0,2064 s |  2,0836 s |  22,2655 s |
-| Studentų išvedimas į du skirtingus failus | 0,0098 s | 0,0921 s | 0,9080 s |  9,1744 s |  110,429 s |
+| Failo nuskaitymas                         | 0,0021 s | 0,0200 s | 0,2011 s |  2,0169 s |  20,7048 s |
+| Studentų rūšiavimas                       | 0,0005 s | 0,0031 s | 0,0276 s |  0,3526 s |  3,8443 s  |
+| Studentų atskyrimas                       | 0,0004 s | 0,005 s  | 0,0364 s |  0,3858 s |  4,0043 s  |
+| Studentų išvedimas į du skirtingus failus | 0,0445 s | 0,0112 s | 0,1018 s |  1,1361 s |  13,4068 s |
    
 List:
-|                                           | 1000     | 10 000   | 100 000   | 1 000 000 | 10 000 000 |
-|-------------------------------------------|----------|----------|-----------|-----------|------------|
-| Failo nuskaitymas                         | 0,0199 s | 0,1846 s | 2,1220 s  | 22,0957 s |  201,652 s |
-| Studentų rūšiavimas                       | 0,0002 s | 0,0030 s | 0,0314 s  |  0,8397 s |  10,042 s  |
-| Studentų atskyrimas                       | 0,0017 s | 0,0168 s | 0,1817 s  |  3,1471 s |  10.042 s  |
-| Studentų išvedimas į du skirtingus failus | 0,0173 s | 0,4581 s | 118,631 s |     -     |      -     |
+|                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
+|-------------------------------------------|----------|----------|----------|-----------|------------|
+| Failo nuskaitymas                         | 0,0037 s | 0,0215 s | 0,2003 s |  2,0471 s |  20,3886 s |
+| Studentų rūšiavimas                       | 0 s      | 0,0015 s | 0,0142 s |  0,4314 s |  7,8671 s  |
+| Studentų atskyrimas                       | 0,0002 s | 0,0037 s | 0,0421 s |  0,5666 s |  5,6722 s  |
+| Studentų išvedimas į du skirtingus failus | 0,0015 s | 0,0113 s | 0,1105 s |  1,2739 s |  14,7428 s |
 
 Išvados:
-- Nuskaitymas ilgiausiai vyko į deque konteinerį.
-- Greičiausiai surūšiuotas buvo list konteineris (buvo naudotas list konteinerio specifinis algortimas).
+- Nuskaitymas ilgiausiai vyko į vector konteinerį.
+- Greičiausiai surūšiuotas buvo vector konteineris.
 - Greičiausiai išvedamas buvo vector konteineris.
-- Didinant informacijos kiekį, list konteinerio sparta mažėja netolygiai.
 
 Atskyrimo metodų spartos lyginimas:
 
