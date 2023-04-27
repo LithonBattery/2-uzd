@@ -1,4 +1,4 @@
-# 1-uzd v.1
+# 1-uzd v.1.1
 PROGRAMOS ĮDIEGIMAS:
 
 Programai įdiegti naudojamas Makefile. Aplankale su programos failais atsidarius komandų terminalą reikia naudoti šias komandas:
@@ -9,7 +9,9 @@ Programai įdiegti naudojamas Makefile. Aplankale su programos failais atsidariu
 Bendra informacija:
 
 - Programai paleisti naudojamas main.exe failas (nepaisant naudojamo konteinerio).
-- Generuojamų failų pavadinimų šablonas: "kursiokai<jūsų_pasirinktas_eilučių_skaičius>.txt
+- Generuojamų failų pavadinimų šablonas: "kursiokai<jūsų_pasirinktas_eilučių_skaičius>.txt.
+- Pereinant iš v.1 į v.1.1 struktūra buvo pakeista klase. Atitinkamai buvo pritaikyti ir papildomi pakeitimai susiję su klasės naudojimu.
+- Pereinant iš v.1 į v.1.1 buvo pasirinkta naudoti tik vector konteinerį.
 
 
 PROGRAMOS VEIKIMAS:
@@ -60,8 +62,7 @@ STUDENTŲ ATSKYRIMO METODAI:
 TESTAVIMAS:
 - Testuojant buvo naudojami 5 failai - 1000, 10 000, 100 000, 1 000 000 ir 10 000 000 studentų su 3 pažymiais kiekvienam studentui.
 - Kadangi programos veikimo metu daug kartų prašoma vartotojo pasirinkti veiksmus ar įrašyti tam tikrus duomenis, bendras programos laikas buvo matuojamas, tačiau testavimo metu išvesti bendri laikai neįrašyti.
-- Testavimas atliktas su trimis programos realizacijomis - naudojant vector, deque arba list konteinerius.
-- Jei trukmė per maža ošmatuoti, rašomas 0.
+- Jei trukmė per maža išmatuoti, rašomas 0.
 - Kadangi ir senesnėse programos versijose buvo naudojamas find_if algoritmas, papildomi stl optimizavimo algoritmai nebuvo pritaikyti. Todėl programos sparta su jais nebuvo testuojama.
 
 Testavimui naudotas nešiojamasis kompiuteris:
@@ -72,7 +73,7 @@ Testavimui naudotas nešiojamasis kompiuteris:
 | OS   | Windows 11 Home                                |
 
 
-Bendras veikimo spartos lyginimas (naudotas ą atslyrimo metodas):
+Bendras veikimo spartos lyginimas (naudotas 1 atskyrimo metodas):
 
 Vector:
 |                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
@@ -126,3 +127,54 @@ List:
 Išvados:
 - Skirtumas būtų ryškesnis su dar didesniais informacijos kiekiais nei buvo naudota.
 - Su naudotais informacijos kiekiais skirtumai labai maži, praktiškai nereikšmingi.
+
+v.1 ir v.1.1 vector realizacijos lyginimas (naudotas 2 atskyrimo metodas):
+
+v.1 (struktūra):
+|                                           | 100 000  | 1 000 000 |
+|-------------------------------------------|----------|-----------|
+| Failo nuskaitymas                         | 0,1813 s | 1,8400 s  |
+| Studentų rūšiavimas                       | 0,0088 s | 0,0988 s  |
+| Studentų atskyrimas                       | 0,0065 s | 0,0948 s  |
+| Studentų išvedimas į du skirtingus failus | 0,1104 s | 0,7136 s  |
+
+v.1.1 (klasė):
+|                                           | 100 000  | 1 000 000 |
+|-------------------------------------------|----------|-----------|
+| Failo nuskaitymas                         | 0,1972 s | 1,9306 s  |
+| Studentų rūšiavimas                       | 0,0295 s | 0,3021 s  |
+| Studentų atskyrimas                       | 0,0041 s | 0,0472 s  |
+| Studentų išvedimas į du skirtingus failus | 0,0704 s | 0,7168 s  |
+
+Išvada:
+
+- Didžiausias pastebimas skirtumas yra rūšiavime ir atskyrime.
+
+v.1.1 realizacijos spartos naudojant skirtingus kompiliavimo optimizavimo flag:
+
+-o1:
+|                                           | 100 000  | 1 000 000 |
+|-------------------------------------------|----------|-----------|
+| Failo nuskaitymas                         | 0,3635 s | 3,4576 s  |
+| Studentų rūšiavimas                       | 0,2685 s | 3,4407 s  |
+| Studentų atskyrimas                       | 0,015 s  | 0,1576 s  |
+| Studentų išvedimas į du skirtingus failus | 0,2341 s | 2,2370 s  |
+
+-o2:
+|                                           | 100 000  | 1 000 000 |
+|-------------------------------------------|----------|-----------|
+| Failo nuskaitymas                         | 0,3606 s | 3,5069 s  |
+| Studentų rūšiavimas                       | 0,2652 s | 3,4616 s  |
+| Studentų atskyrimas                       | 0,0151 s | 0,1525 s  |
+| Studentų išvedimas į du skirtingus failus | 0,23 s   | 2,23 s    |
+
+-o3:
+|                                           | 100 000  | 1 000 000 |
+|-------------------------------------------|----------|-----------|
+| Failo nuskaitymas                         | 0,3604 s | 3,4887 s  |
+| Studentų rūšiavimas                       | 0,2516 s | 3,3782 s  |
+| Studentų atskyrimas                       | 0,0146 s | 0,1585 s  |
+| Studentų išvedimas į du skirtingus failus | 0,2303 s | 2,2376 s  |
+
+Išvada:
+- Labai nedidelis spartos skirtumas tarp kompiliatoriaus optimizatorių.
