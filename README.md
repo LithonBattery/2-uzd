@@ -12,6 +12,8 @@ Bendra informacija:
 - Generuojamų failų pavadinimų šablonas: "kursiokai<jūsų_pasirinktas_eilučių_skaičius>.txt.
 - Pereinant iš v.1 į v.1.1 struktūra buvo pakeista klase. Atitinkamai buvo pritaikyti ir papildomi pakeitimai susiję su klasės naudojimu.
 - Pereinant iš v.1 į v.1.1 buvo pasirinkta naudoti tik vector konteinerį.
+- pereinant iš v.1.1 į v.1.2 įgyvendinta "rule of five".
+- pereinant iš v.1.1 į v.1.2 papildytas optimizavimo testavimas
 
 
 PROGRAMOS VEIKIMAS:
@@ -146,35 +148,45 @@ v.1.1 (klasė):
 | Studentų atskyrimas                       | 0,0041 s | 0,0472 s  |
 | Studentų išvedimas į du skirtingus failus | 0,0704 s | 0,7168 s  |
 
-Išvada:
+Išvados:
 
+- Labai smulkus spartos skirtumas.
 - Didžiausias pastebimas skirtumas yra rūšiavime ir atskyrime.
 
-v.1.1 realizacijos spartos naudojant skirtingus kompiliavimo optimizavimo flag:
+v.1.1/v.1.2  realizacijos spartos naudojant skirtingus kompiliavimo optimizavimo flag'us:
+
+Be optimizavimo:
+|                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
+|-------------------------------------------|----------|----------|----------|-----------|------------|
+| Failo nuskaitymas                         | 0,0071 s | 0,0477 s | 0,4097 s | 4,1500 s  | 42,8526 s  |
+| Studentų rūšiavimas                       | 0,0008 s | 0,0129 s | 0,0682 s | 0,7731 s  | 7,0087 s   |
+| Studentų atskyrimas                       | 0,0001 s | 0,0016 s | 0,0143 s | 0,1927 s  | 2,1626 s   |
+| Studentų išvedimas į du skirtingus failus | 0,0058 s | 0,0117 s | 0,0931 s | 0,8878 s  | 8,9838 s   |
 
 -o1:
-|                                           | 100 000  | 1 000 000 |
-|-------------------------------------------|----------|-----------|
-| Failo nuskaitymas                         | 0,3635 s | 3,4576 s  |
-| Studentų rūšiavimas                       | 0,2685 s | 3,4407 s  |
-| Studentų atskyrimas                       | 0,015 s  | 0,1576 s  |
-| Studentų išvedimas į du skirtingus failus | 0,2341 s | 2,2370 s  |
+|                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
+|-------------------------------------------|----------|----------|----------|-----------|------------|
+| Failo nuskaitymas                         | 0,0031 s | 0,0210 s | 0,1889 s | 1,8659 s  | 18,9952 s  |
+| Studentų rūšiavimas                       | 0,0002 s | 0,0011 s | 0,0138 s | 0,1124 s  | 1,1498 s   |
+| Studentų atskyrimas                       | 0 s      | 0,0006 s | 0,0063 s | 0,1117 s  | 1,1709 s   |
+| Studentų išvedimas į du skirtingus failus | 0,0039 s | 0,0075 s | 0,0649 s | 0,6941 s  | 7,4987 s   |
 
 -o2:
-|                                           | 100 000  | 1 000 000 |
-|-------------------------------------------|----------|-----------|
-| Failo nuskaitymas                         | 0,3606 s | 3,5069 s  |
-| Studentų rūšiavimas                       | 0,2652 s | 3,4616 s  |
-| Studentų atskyrimas                       | 0,0151 s | 0,1525 s  |
-| Studentų išvedimas į du skirtingus failus | 0,23 s   | 2,23 s    |
+|                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
+|-------------------------------------------|----------|----------|----------|-----------|------------|
+| Failo nuskaitymas                         | 0,0051 s | 0,0209 s | 0,1792 s | 1,8011 s  | 18,1458 s  |
+| Studentų rūšiavimas                       | 0,0001 s | 0,0019 s | 0,0105 s | 0,1042 s  | 1,0482 s   |
+| Studentų atskyrimas                       | 0 s      | 0,0008 s | 0,0079 s | 0,1107 s  | 1,1420 s   |
+| Studentų išvedimas į du skirtingus failus | 0,0014 s | 0,0078 s | 0,0696 s | 0,6690 s  | 7,3065 s   |
 
 -o3:
-|                                           | 100 000  | 1 000 000 |
-|-------------------------------------------|----------|-----------|
-| Failo nuskaitymas                         | 0,3604 s | 3,4887 s  |
-| Studentų rūšiavimas                       | 0,2516 s | 3,3782 s  |
-| Studentų atskyrimas                       | 0,0146 s | 0,1585 s  |
-| Studentų išvedimas į du skirtingus failus | 0,2303 s | 2,2376 s  |
+|                                           | 1000     | 10 000   | 100 000  | 1 000 000 | 10 000 000 |
+|-------------------------------------------|----------|----------|----------|-----------|------------|
+| Failo nuskaitymas                         | 0,0033 s | 0,0182 s | 0,1758 s | 1,8363 s  | 18,5540 s  |
+| Studentų rūšiavimas                       | 0,0002 s | 0,0017 s | 0,0109 s | 0,1108 s  | 1,1039 s   |
+| Studentų atskyrimas                       | 0 s      | 0,0009 s | 0,0068 s | 0,1032 s  | 1,1920 s   |
+| Studentų išvedimas į du skirtingus failus | 0,0022 s | 0,0085 s | 0,0680 s | 0,6992s   | 7,5758 s   |
 
-Išvada:
+Išvados:
+- Optimizavimas labai pagreitina programos veikimą.
 - Labai nedidelis spartos skirtumas tarp kompiliatoriaus optimizatorių.
