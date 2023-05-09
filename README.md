@@ -1,4 +1,4 @@
-# 1-uzd v.1.2
+# 1-uzd v.1.5
 PROGRAMOS ĮDIEGIMAS:
 
 Programai įdiegti naudojamas Makefile. Aplankale su programos failais atsidarius komandų terminalą reikia naudoti šias komandas:
@@ -14,7 +14,7 @@ Bendra informacija:
 - Pereinant iš v.1 į v.1.1 buvo pasirinkta naudoti tik vector konteinerį.
 - pereinant iš v.1.1 į v.1.2 įgyvendinta "rule of five".
 - pereinant iš v.1.1 į v.1.2 papildytas optimizavimo testavimas
-
+- pereinant iš v.1.2 į v.1.5 naudojama klasė atskirta į dvi - bazinę ir derived.
 
 PROGRAMOS VEIKIMAS:
 
