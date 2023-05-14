@@ -22,6 +22,7 @@ BENDRA INFORMACIJA:
 
 - Programai paleisti naudojamas main.exe failas (nepaisant naudojamo konteinerio).
 - Generuojamų failų pavadinimų šablonas: "kursiokai<jūsų_pasirinktas_eilučių_skaičius>.txt.
+- Naudojami failai turi atitiktį tam tikrą šabloną. Pridedamas pavyzdinis failas 'kursiokai.txt'.
 - Pereinant iš v.1 į v.1.1 struktūra buvo pakeista klase. Atitinkamai buvo pritaikyti ir papildomi pakeitimai susiję su klasės naudojimu.
 - Pereinant iš v.1 į v.1.1 buvo pasirinkta naudoti tik vector konteinerį.
 - Pereinant iš v.1.1 į v.1.2 įgyvendinta "rule of five".
