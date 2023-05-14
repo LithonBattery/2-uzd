@@ -1,4 +1,4 @@
-# 2-uzd v.1.5
+# 2-uzd v.2.0
 PROGRAMOS ĮDIEGIMAS:
 
 Programai įdiegti naudojamas Makefile. Aplankale su programos failais atsidarius komandų terminalą reikia naudoti šias komandas:
