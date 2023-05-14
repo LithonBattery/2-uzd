@@ -1,20 +1,36 @@
 # 2-uzd v.2.0
 PROGRAMOS ĮDIEGIMAS:
 
-Programai įdiegti naudojamas Makefile. Aplankale su programos failais atsidarius komandų terminalą reikia naudoti šias komandas:
+Programai įdiegti galima naudoti Makefile arba setup wizzard.
+<br /><br />
+
+Makefile
+
+Aplankale su programos failais atsidarius komandų terminalą reikia naudoti šias komandas:
 1. make - skirta programos pagrindiniam main.exe failui sukurti. (Jei trūksta func.o failo ši komanda pati jį sukompiliuoja)
 2. make func - skirta sukompiliuoti tik func.o failą.
 3. make clean - ištrina visus main.exe ir visus .o tipo failus.
+<br /><br />
 
-Bendra informacija:
+
+Setup wizzard
+
+Iš aplanko 'vector - v.2.0 setup' paleidus setup.exe arba setup.msi failus atsidarys instaliavimo langas, sekant instrukcijas programa bus įdiegta.
+<br /><br />
+
+BENDRA INFORMACIJA:
 
 - Programai paleisti naudojamas main.exe failas (nepaisant naudojamo konteinerio).
 - Generuojamų failų pavadinimų šablonas: "kursiokai<jūsų_pasirinktas_eilučių_skaičius>.txt.
 - Pereinant iš v.1 į v.1.1 struktūra buvo pakeista klase. Atitinkamai buvo pritaikyti ir papildomi pakeitimai susiję su klasės naudojimu.
 - Pereinant iš v.1 į v.1.1 buvo pasirinkta naudoti tik vector konteinerį.
-- pereinant iš v.1.1 į v.1.2 įgyvendinta "rule of five".
-- pereinant iš v.1.1 į v.1.2 papildytas optimizavimo testavimas
-- pereinant iš v.1.2 į v.1.5 naudojama klasė atskirta į dvi - bazinę ir derived.
+- Pereinant iš v.1.1 į v.1.2 įgyvendinta "rule of five".
+- Pereinant iš v.1.1 į v.1.2 papildytas optimizavimo testavimas
+- Pereinant iš v.1.2 į v.1.5 naudojama klasė atskirta į dvi - bazinę ir derived.
+- Pereinant iš v.1.5 į v.2.0 įgyvendintas setup funkcionalumas.
+- Pereinant iš v.1.5 į v.2.0 sukurta Doxygen klasių ir funkcijų dokumentacija anglų kalba.
+- Pereinant iš v.1.5 į v.2.0 įgyvendinti keli unit testai.
+<br /><br />
 
 PROGRAMOS VEIKIMAS:
 
@@ -50,16 +66,17 @@ PROGRAMOS VEIKIMAS:
     2) Jei pasirenkama dar vieno failo nenuskaityti, programa pereina į 22 žingsnį.
 22. Programa išveda visų studentų sąrašą su apskaičiuotu galutiniu balu pagal pažymių vidurkį ir pagal medianą.
 23. Programa baigia darbą.
+<br /><br />
 
 GALUTINIO BALO APSKAIČIAVIMAS:
 - Su vidurkiu: 0.4 * vidurkis + 0.6 * egzamino vertinimas.
 - Su mediana: 0.4 * mediana + 0.6 * egzamino vertinimas.
-
+<br /><br />
 
 STUDENTŲ ATSKYRIMO METODAI:
 1. Sukuriami du nauji konteineriai, į juos įrašomi atitinkami studentai.
 2. Sukuriamas vienas naujas konteineris, į kurį įrašomi atitinkami studentai, įrašytiejį į naują konteinerį pašalinami iš senojo.
-
+<br /><br />
 
 TESTAVIMAS:
 - Testuojant buvo naudojami 5 failai - 1000, 10 000, 100 000, 1 000 000 ir 10 000 000 studentų su 3 pažymiais kiekvienam studentui.
@@ -74,7 +91,7 @@ Testavimui naudotas nešiojamasis kompiuteris:
 | Disk | Solid State Drive                              |
 | OS   | Windows 11 Home                                |
 
-
+<br /><br />
 Bendras veikimo spartos lyginimas (naudotas 1 atskyrimo metodas):
 
 Vector:
@@ -105,6 +122,7 @@ Išvados:
 - Nuskaitymas ilgiausiai vyko į vector konteinerį.
 - Greičiausiai surūšiuotas buvo vector konteineris.
 - Greičiausiai išvedamas buvo vector konteineris.
+<br /><br />
 
 Atskyrimo metodų spartos lyginimas:
 
@@ -129,6 +147,7 @@ List:
 Išvados:
 - Skirtumas būtų ryškesnis su dar didesniais informacijos kiekiais nei buvo naudota.
 - Su naudotais informacijos kiekiais skirtumai labai maži, praktiškai nereikšmingi.
+<br /><br />
 
 v.1 ir v.1.1 vector realizacijos lyginimas (naudotas 2 atskyrimo metodas):
 
@@ -149,9 +168,9 @@ v.1.1 (klasė):
 | Studentų išvedimas į du skirtingus failus | 0,0704 s | 0,7168 s  |
 
 Išvados:
-
 - Labai smulkus spartos skirtumas.
 - Didžiausias pastebimas skirtumas yra rūšiavime ir atskyrime.
+<br /><br />
 
 v.1.1/v.1.2  realizacijos spartos naudojant skirtingus kompiliavimo optimizavimo flag'us:
 
